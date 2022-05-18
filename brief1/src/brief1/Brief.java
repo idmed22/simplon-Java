@@ -12,8 +12,7 @@ public class Brief {
 				maxheursHob = 50, 
 				maxheuresMens = 200;
 				char ModePayment;
-
-		
+				
 		Scanner reader = new Scanner(System.in); 
 		System.out.println("Enter your Name: ");
 		name = reader.next();
