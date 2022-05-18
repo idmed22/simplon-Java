@@ -34,20 +34,23 @@ public class Brief {
 				
 				if (TarifHobHeure < 25) {
 					System.out.print("TLe tarif par heure ne doit pas être inférieur à 25 DH !\r\n");
-					return;
+					
 			}
 				
 				
 				if (heursHob > maxheursHob) {
 					System.out.print(" Le nombre d’heure total ne doit pas dépasser 50 heures par semaine \r\n");
-					return;
+					
 				}
 
+				/////// NB : salaire de base= taux horaire * heures prestées
+				
 				result = heursHob * TarifHobHeure;
 				if (minheuresHob < heursHob && heursHob <= maxheursHob) {
 					overTime = heursHob - minheuresHob;
 					result = (minheuresHob * TarifHobHeure) + overTime * (TarifHobHeure + TarifHobHeure / 2);
 				}
+				
 				System.out.println("hebdomadaire saliare est : " + result + " DH");
 
 			} 
@@ -67,6 +70,9 @@ public class Brief {
 					System.out.print(" Le nombre d'heure total ne doit pas depasser 50 heures par semaine \r\n");
 					return;
 				}
+				
+				/////// NB : salaire de base= taux horaire * heures prestées
+				
 				result = heuresMens * TarifheuresMens;
 				if (minheuresMens < heuresMens && heuresMens <= maxheuresMens) {
 					overTime = heuresMens - minheuresMens;
