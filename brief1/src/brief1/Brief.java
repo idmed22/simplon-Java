@@ -57,7 +57,7 @@ public class Brief {
 	public static void main(String[] args) {		 
 		
 		String name;
-		double result, overTime, heursHob, hoursPerMonth, HobHeure, monthlyHourRate, minHoursPerWeek = 40,
+		double result, overTime, heursHob, heursMens, HobHeure, monthlyHourRate, minHoursPerWeek = 40,
 				minHoursPerMonth = 180, maxheursHob = 50, maxHoursPerMonth = 200;
 		char ModePayment;
 
@@ -105,8 +105,8 @@ public class Brief {
 			
 			else if (ModePayment == 'm') {
 
-				System.out.print("Enter the number of hours worked per month: ");
-				hoursPerMonth = reader.nextDouble();
+				System.out.print("le nombre d’heure travaillée par semaine : ");
+				heursMens = reader.nextDouble();
 				System.out.print("Enter Rate Per Hour: ");
 				monthlyHourRate = reader.nextDouble();
 				if (monthlyHourRate < 20) {
@@ -114,13 +114,13 @@ public class Brief {
 					System.out.print("The rate per hour must not be less than 20 DH per hour!\r\n");
 					return;
 				}
-				if (hoursPerMonth > maxHoursPerMonth) {
+				if (heursMens > maxHoursPerMonth) {
 					System.out.print("The total number of hours must not exceed 50 hours per month!\r\n");
 					return;
 				}
-				result = hoursPerMonth * monthlyHourRate;
-				if (minHoursPerMonth < hoursPerMonth && hoursPerMonth <= maxHoursPerMonth) {
-					overTime = hoursPerMonth - minHoursPerMonth;
+				result = heursMens * monthlyHourRate;
+				if (minHoursPerMonth < heursMens && heursMens <= maxHoursPerMonth) {
+					overTime = heursMens - minHoursPerMonth;
 					result = (minHoursPerMonth * monthlyHourRate) + overTime * (monthlyHourRate + monthlyHourRate / 2);
 				}
 				System.out.println("mensuel salaire est :  " + result + " DH");
