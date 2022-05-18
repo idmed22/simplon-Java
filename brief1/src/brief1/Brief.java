@@ -1,103 +1,89 @@
-package brief1;
+	 ////////////////////////////// contexte de projet ///////////////////////////////////////
+
+
+				 /* 					
+				 Écrivez un programme JAVA qui permet de simuler le montant obtenu chaque semaine et chaque mois :
+
+				Scénario:
+
+				Un message qui invite l’employé à introduire son nom
+
+				Un message de bienvenue au nom de l’utilisateur
+
+				L’utilisateur est invité à choisir entre mode de payement mensuel ou hebdomadaire
+
+				Dans le premier cas :
+
+				L’utilisateur est invité à introduire le nombre d’heure travaillée par semaine
+
+				Le nombre d’heure total ne doit pas dépasser 50 heures par semaine
+
+				Le tarif par heure ne doit pas être inférieur à 25 DH par heure Si le 40 < nombre d’heure <=50 le tarif par heure est augmenté par 50/% par rapport au tarif de base pour les heures extra   « les heures qui dépassent 40»
+
+				Dans le second cas :
+
+				L’utilisateur est invité à introduire le nombre d’heure travaillée par mois
+
+				Le nombre d’heure total ne doit pas dépasser 200 heures par mois
+
+				Le tarif ne doit pas être inférieur à 20 DH par heure Si le 180 < nombre d’heure <=200 le tarif par heure est augmenté par 50/% par rapport au tarif de base pour les heures extra  « les heures qui dépassent 180 »
+
+				NB : salaire de base= taux horaire * heures prestées
+				 		*/
+
+						package brief1;
 
 import java.util.Scanner;
 public class Brief {
- /* public static void main(String[] args) {
-		System.out.print("Ecrire votre nom : ");
-		Scanner scanner = new Scanner(System.in);
-	     String nom = scanner.nextLine();
-	     System.out.println("Bonjour : "  +  nom);   
-	     
-	     
-	     /////// le mode de payment
-			System.out.print("select between mensuel ou hobdomadaire : ");
-			Scanner select = new Scanner(System.in);
-//		     System.out.print("mode de payement est : "+ payment + " \n" );
-		     
-		     String payment = scanner.next();
-
-		     
-			if (payment== "hhh" ) {			
-			 	System.out.print("le nombre d�heure travaill�e par semaine : ");
-				Scanner scaner = new Scanner(System.in);
-			    int  heure = scaner.nextInt();
-			}
-	}
-	
-	/*
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-				String name; 
-		        int mensuel, hobdomadaine, heure;
-		        char operationType;
-
-			    Scanner reader = new Scanner(System.in); //the  new keyword is used to create an instance of the class.
-				//A message that prompts the employee to enter their name
-				  System.out.println("veuillez saisir votre nom : ");
-				  name = reader.next();
-				  
-				  System.out.println("Bonjour  "+name );
-		   
-		       do {
-				System.out.println("veillez saisie entre le mode de payement mensuel ou hebdomadaire");
-		        System.out.print("saisir le mode de payment: ");
-		        operationType = reader.next().charAt(0);
-		       		
-		        
-		        System.out.print("veillez saisir le nombre d�heure travaill�e par semaine ");
-		        heure = reader.nextInt();
-		        
-				if (heure < 25){
-					 // Le nombre d�heure total ne doit pas d�passer 50 heures par semaine
-			        System.out.print("Le nombre d�heure total ne doit pas d�passer 50 heures par semaine");
-			        return;
-			     }    
-		       }while(true);*/
-
 	public static void main(String[] args) {		 
 		
-		String name;
-		double result, overTime, heursHob, heursMens, HobHeure, monthlyHourRate, minHoursPerWeek = 40,
-				minHoursPerMonth = 180, maxheursHob = 50, maxHoursPerMonth = 200;
-		char ModePayment;
+				String name;
+				double 
+				heursHob, heuresMens,result, TarifHobHeure, TarifheuresMens,overTime, 
+				minheuresHob = 40,
+				minheuresMens= 180,
+				maxheursHob = 50, 
+				maxheuresMens = 200;
+				char ModePayment;
 
 		
-		Scanner reader = new Scanner(System.in); // the new keyword is used to create an instance of the class.
-		// A message that prompts the employee to enter their name
+		Scanner reader = new Scanner(System.in);  j
 		System.out.println("Enter your Name: ");
 		name = reader.next();
-		// A welcome message on behalf of the user
 		System.out.println("Bonjour : " + name);
 
 		do {
 			System.out.println("choisir le  mode de payement m for mensuel / h for hebdomadaire :");
 			System.out.print("entrer le mode de payment !! ");
+			
+			////////// check the first letter 
 			ModePayment = reader.next().charAt(0);
 
 			if (ModePayment == 'h') {
 				
-				System.out.print("le nombre d�heure travaill�e par semaine: ");
+				System.out.print("le nombre d’heure travaillée par semaine: ");
 				heursHob = reader.nextDouble();
 				System.out.print("entrer le salaire en heure: ");
-				HobHeure = reader.nextDouble();
+				TarifHobHeure = reader.nextDouble();
 				
-				if (HobHeure < 25) {
-					// The rate per hour must not be less than 25 DH per hour
-					System.out.print("TLe tarif par heure ne doit pas �tre inf�rieur � 25 DH !\r\n");
+				if (TarifHobHeure < 25) {
+					System.out.print("TLe tarif par heure ne doit pas être inférieur à 25 DH !\r\n");
 					return;
 			}
 				
 				
 				if (heursHob > maxheursHob) {
-					System.out.print(" Le nombre d�heure total ne doit pas d�passer 50 heures par semaine \r\n");
+					System.out.print(" Le nombre d’heure total ne doit pas dépasser 50 heures par semaine \r\n");
 					return;
 				}
 
-				result = heursHob * HobHeure;
-				if (minHoursPerWeek < heursHob && heursHob <= maxheursHob) {
-					overTime = heursHob - minHoursPerWeek;
-					result = (minHoursPerWeek * HobHeure) + overTime * (HobHeure + HobHeure / 2);
+				result = heursHob * TarifHobHeure;
+				if (minheuresHob < heursHob && heursHob <= maxheursHob) {
+					overTime = heursHob - minheuresHob;
+					result = (minheuresHob * TarifHobHeure) + overTime * (TarifHobHeure + TarifHobHeure / 2);
 				}
+				
+				
 				System.out.println("hebdomadaire saliare est : " + result + " DH");
 
 			} 
@@ -105,23 +91,22 @@ public class Brief {
 			
 			else if (ModePayment == 'm') {
 
-				System.out.print("le nombre d�heure travaill�e par semaine : ");
-				heursMens = reader.nextDouble();
-				System.out.print("Enter Rate Per Hour: ");
-				monthlyHourRate = reader.nextDouble();
-				if (monthlyHourRate < 20) {
-					// The rate per hour must not be less than 25 DH per hour
-					System.out.print("The rate per hour must not be less than 20 DH per hour!\r\n");
+				System.out.print("le nombre d’heure travaillée par semaine : ");
+				heuresMens = reader.nextDouble();
+				System.out.print("entrer le salaire en heure: : ");
+				TarifheuresMens = reader.nextDouble();
+				if (TarifheuresMens < 20) {
+					System.out.print("TLe tarif par heure ne doit pas �tre inf�rieur � 20 DH !\r\n");
 					return;
 				}
-				if (heursMens > maxHoursPerMonth) {
-					System.out.print("The total number of hours must not exceed 50 hours per month!\r\n");
+				if (heuresMens > maxheuresMens) {
+					System.out.print(" Le nombre d'heure total ne doit pas depasser 50 heures par semaine \r\n");
 					return;
 				}
-				result = heursMens * monthlyHourRate;
-				if (minHoursPerMonth < heursMens && heursMens <= maxHoursPerMonth) {
-					overTime = heursMens - minHoursPerMonth;
-					result = (minHoursPerMonth * monthlyHourRate) + overTime * (monthlyHourRate + monthlyHourRate / 2);
+				result = heuresMens * TarifheuresMens;
+				if (minheuresMens < heuresMens && heuresMens <= maxheuresMens) {
+					overTime = heuresMens - minheuresMens;
+					result = (minheuresMens * TarifheuresMens) + overTime * (TarifheuresMens + TarifheuresMens / 2);
 				}
 				System.out.println("mensuel salaire est :  " + result + " DH");
 
